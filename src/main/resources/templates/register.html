@@ -6,22 +6,32 @@
 </head>
 <body>
 
-<nav class="nav">
-    <a href="http://localhost:8082/">Home</a>
-    <a href="http://localhost:8082/list">List</a>
-    <a href="http://localhost:8082/manager">Manager</a>
+<nav class="navbar">
+    <div class="navitems">
+        <div class="navbar-item">
+            <a href="http://localhost:8082/">Home</a>
+        </div>
+        <div class="navbar-item">
+            <a href="http://localhost:8082/list">List</a>
+        </div>
+        <div class="navbar-item-active">
+            <a href="http://localhost:8082/manager">Manager</a>
+        </div>
+    </div>
 </nav>
 
-<section>
-   <form action="#" method="post" th:object="${user}" th:action="@{/register}">
-       <label>Username</label>
-       <input type="email" th:field="*{username}">
-       <label>Password</label>
-       <input type="password" th:field="*{password}">
-       <label>Remove</label>
-       <input type="checkbox" value="true">
-       <button type="submit">Submit</button>
-   </form>
+<section class="section" id="home-section">
+    <div class="section-content" id="home-content">
+        <h1 class="section-header" id="home-header">SIGNUP</h1>
+        <h2 class="section-subtitle" id="home-subtitle">Fill out the info below to sign up!</h2>
+        <form action="#" method="post" th:object="${user}" th:action="@{/register}">
+           <label>Username</label>
+           <input type="email" th:field="*{username}">
+           <label>Password</label>
+           <input type="password" th:field="*{password}">
+           <button type="submit">Submit</button>
+       </form>
+    </div>
 </section>
 
 </body>

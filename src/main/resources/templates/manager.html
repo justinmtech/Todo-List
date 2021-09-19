@@ -6,21 +6,33 @@
 </head>
 <body>
 
-<nav class="nav">
-    <a href="http://localhost:8082/">Home</a>
-    <a href="http://localhost:8082/list">List</a>
-    <a href="http://localhost:8082/manager">Manager</a>
+
+<nav class="navbar">
+    <div class="navitems">
+        <div class="navbar-item">
+            <a href="http://localhost:8082/">Home</a>
+        </div>
+        <div class="navbar-item">
+            <a href="http://localhost:8082/list">List</a>
+        </div>
+        <div class="navbar-item-active">
+            <a href="http://localhost:8082/manager">Manager</a>
+        </div>
+    </div>
 </nav>
 
-<section>
-    <h1>Add TodoList task</h1>
-    <form action="#" method="post" th:object="${todoItem}" th:action="@{/manager}">
-        <label>Name</label>
-        <input type="text" th:field="*{name}">
-        <label>Remove</label>
-        <input type="checkbox" th:field="*{remove}" value="yes">
-        <button type="submit">Submit</button>
-    </form>
+<section class="section" id="home-section">
+    <div class="section-content" id="home-content">
+        <h1 class="section-header" id="home-header">TODOLIST MANAGER</h1>
+        <h2 class="section-subtitle" id="home-subtitle">Add or remove tasks..</h2>
+        <form action="#" method="post" th:object="${todoItem}" th:action="@{/manager}">
+            <label>Name</label>
+            <input type="text" th:field="*{name}">
+            <label>Remove</label>
+            <input type="checkbox" th:field="*{remove}" value="yes">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </section>
 
 </body>
