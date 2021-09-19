@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList - Register</title>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="http://localhost:8082/">Home</a>
+    <a href="http://localhost:8082/list">List</a>
+    <a href="http://localhost:8082/manager">Manager</a>
+</nav>
+
+<section>
+   <form action="#" method="post" th:object="${user}" th:action="@{/register}">
+       <label>Username</label>
+       <input type="email" th:field="*{username}">
+       <label>Password</label>
+       <input type="password" th:field="*{password}">
+       <label>Remove</label>
+       <input type="checkbox" value="true">
+       <button type="submit">Submit</button>
+   </form>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList - List</title>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="http://localhost:8082/">Home</a>
+    <a href="http://localhost:8082/list">List</a>
+    <a href="http://localhost:8082/manager">Manager</a>
+</nav>
+
+<section>
+    <p class="section" th:text="${user.todoList}"></p>
+</section>
+
+</body>
+</html>

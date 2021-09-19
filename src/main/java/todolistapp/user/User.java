@@ -1,25 +1,24 @@
 package todolistapp.user;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity(name = "users")
 @Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String username;
+    private String password;
     @OneToMany(cascade = CascadeType.ALL)
     private List<TodoItem> todoList;
 
-    public User(int id, String username) {
-        this.id = id;
-        this.username = username;
+    public User() {
+        this.todoList = new LinkedList<>();
     }
-
-    public User() {}
 
     public int getId() {
         return id;
@@ -43,6 +42,14 @@ public class User {
 
     public void setTodoList(List<TodoItem> todoList) {
         this.todoList = todoList;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

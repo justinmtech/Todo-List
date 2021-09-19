@@ -1,9 +1,6 @@
 package todolistapp.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class TodoItem {
@@ -11,14 +8,10 @@ public class TodoItem {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String name;
+    @Transient
+    private String remove;
 
-    public TodoItem(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public TodoItem() {
-    }
+    public TodoItem() {}
 
     public int getId() {
         return id;
@@ -34,6 +27,14 @@ public class TodoItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRemove() {
+        return remove;
+    }
+
+    public void setRemove(String remove) {
+        this.remove = remove;
     }
 
     @Override
