@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList - List</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="navitems">
-        <div class="navbar-item">
-            <a href="http://localhost:8082/">Home</a>
-        </div>
-        <div class="navbar-item-active">
-            <a href="http://localhost:8082/list">List</a>
-        </div>
-        <div class="navbar-item">
-            <a href="http://localhost:8082/manager">Manager</a>
+    <div class="navbar-left">
+        <div class="navbar-items">
+            <div class="navbar-item">
+                <a href="http://localhost:8082/">Home</a>
+            </div>
+            <div class="navbar-item-active">
+                <a href="http://localhost:8082/list">List</a>
+            </div>
+            <div class="navbar-item">
+                <a href="http://localhost:8082/manager">Manager</a>
+            </div>
         </div>
     </div>
 </nav>
 
 <section class="section" id="list-section">
     <div class="section-content" id="list-content">
-        <h1 class="section-header" id="list-header">YOUR LIST</h1>
+        <h1 class="section-header" id="list-header">LIST</h1>
         <h2 class="section-subtitle" id="list-subtitle">Use the manager to add or remove items.</h2>
         <p class="section-text" id="list-text" th:text="${user.todoList}"></p>
     </div>

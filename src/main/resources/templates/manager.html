@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
-
 <nav class="navbar">
-    <div class="navitems">
-        <div class="navbar-item">
-            <a href="http://localhost:8082/">Home</a>
-        </div>
-        <div class="navbar-item">
-            <a href="http://localhost:8082/list">List</a>
-        </div>
-        <div class="navbar-item-active">
-            <a href="http://localhost:8082/manager">Manager</a>
+    <div class="navbar-left">
+        <div class="navbar-items">
+            <div class="navbar-item">
+                <a href="http://localhost:8082/">Home</a>
+            </div>
+            <div class="navbar-item">
+                <a href="http://localhost:8082/list">List</a>
+            </div>
+            <div class="navbar-item-active">
+                <a href="http://localhost:8082/manager">Manager</a>
+            </div>
         </div>
     </div>
 </nav>
-
 <section class="section" id="home-section">
     <div class="section-content" id="home-content">
-        <h1 class="section-header" id="home-header">TODOLIST MANAGER</h1>
+        <h1 class="section-header" id="home-header">MANAGER</h1>
         <h2 class="section-subtitle" id="home-subtitle">Add or remove tasks..</h2>
         <form action="#" method="post" th:object="${todoItem}" th:action="@{/manager}">
             <label>Name</label>
