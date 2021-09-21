@@ -75,19 +75,24 @@ body {
 
 .section-button-item {
     text-decoration: none;
-    font-size: 48px;
-    color: black;
-    background: white;
-    padding: 16px;
+    font-size: 32px;
+    color: white;
+    background: blue;
+    padding: 6px;
     border-radius: 6px;
-    width: 10%;
     margin: auto;
+    width: 175px;
 }
-
 
 .section-button a {
     text-decoration: none;
-    color: black;
+    color: white;
+    padding: 6px;
+    width: 175px;
+}
+
+#home-section {
+    height: 900px;
 }
 
 #list-text {
@@ -95,16 +100,31 @@ body {
 }
 
 #list-header {
-    font-size: 64px;
+    font-size: 48px;
+    text-align: center;
 }
 
 #list-subtitle {
     font-size: 32px;
 }
 
+#list-content {
+    background: white;
+    width: 30%;
+    margin: auto;
+    height: 750px;
+    padding: 8px;
+}
+
 #list-section {
-    color: white;
+    color: black;
     background: #24c5ff;
+    height: 1024px;
+    text-align: left;
+    margin: auto;
+}
+
+#list-text-item {
 }
 
 #home-section {
@@ -114,5 +134,3 @@ body {
 #home-signup {
     background: #f7b583;
 }
-
-

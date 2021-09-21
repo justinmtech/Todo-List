@@ -25,9 +25,10 @@
 
 <section class="section" id="list-section">
     <div class="section-content" id="list-content">
-        <h1 class="section-header" id="list-header">LIST</h1>
-        <h2 class="section-subtitle" id="list-subtitle">Use the manager to add or remove items.</h2>
-        <p class="section-text" id="list-text" th:text="${user.todoList}"></p>
+        <h1 class="section-header" id="list-header">TODO</h1>
+        <ul class="section-text" id="list-text">
+            <li class="section-text" id="list-text-item" th:each="todoItem : ${user.todoList}" th:text="${todoItem.name}"></li>
+        </ul>
     </div>
 </section>
 
