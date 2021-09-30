@@ -34,6 +34,8 @@ public class TodoListManager {
                 if (todoItem.getRemove().equalsIgnoreCase("yes")) {
                     TodoItem todoItem2 = user.getTodoList().stream().filter(t -> t.getName().equals(todoItem.getName())).findFirst().orElse(null);
                     user.getTodoList().remove(todoItem2);
+                } else if (todoItem.getRemove().equalsIgnoreCase("all")) {
+                    user.setTodoList(null);
                 }
             } catch (Exception e) {
                     user.getTodoList().add(todoItem);
