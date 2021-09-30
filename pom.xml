@@ -61,7 +61,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>todolist.TodoListApp</mainClass>
+                    <mainClass>todolistapp.TodoListApp</mainClass>
                 </configuration>
             </plugin>
             <plugin>
