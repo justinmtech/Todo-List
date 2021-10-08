@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList - Register</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">\
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="navbar-left">
+        <div class="navbar-items">
+            <div class="navbar-item">
+                <a href="http://justinm.tech:8081/">Home</a>
+            </div>
+            <div class="navbar-item">
+                <a href="http://justinm.tech:8081/list">List</a>
+            </div>
+            <div class="navbar-item">
+                <a href="http://justinm.tech:8081/manager">Manager</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="section" id="home-section">
+    <div class="section-content" id="home-content">
+        <h1 class="section-header" id="home-header">SIGNUP</h1>
+        <h2 class="section-subtitle" id="home-subtitle">Fill out the info below to sign up!</h2>
+        <form action="#" method="post" th:object="${user}" th:action="@{/register}">
+           <label>Username</label>
+           <input type="email" th:field="*{username}">
+           <label>Password</label>
+           <input type="password" th:field="*{password}">
+           <button type="submit">Submit</button>
+       </form>
+    </div>
+</section>
+
+</body>
+</html>
