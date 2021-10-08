@@ -31,7 +31,7 @@ public class RegisterController {
         model.addAttribute("user", user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.saveUser(user);
-        return "manager";
+        return "home";
     }
 
 }
