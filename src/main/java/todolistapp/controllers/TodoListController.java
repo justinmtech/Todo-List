@@ -18,15 +18,10 @@ public class TodoListController {
 
     @GetMapping("/list")
     public String getTodoListPage(Model model) {
-        try {
-            String username = SecurityContextHolder.getContext().getAuthentication().getName();
-            User user = userService.getAllUsers().stream().filter(u -> u.getUsername().equals(username)).findFirst().orElse(null);
-            model.addAttribute("user", user);
-            return "list";
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "error";
-        }
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUserById(username);
+        if (user == null) return "error";
+        model.addAttribute("user", user);
+        return "list";
     }
 }

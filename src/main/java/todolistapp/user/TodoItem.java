@@ -3,6 +3,7 @@ package todolistapp.user;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "todolist_todo_items")
 public class TodoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

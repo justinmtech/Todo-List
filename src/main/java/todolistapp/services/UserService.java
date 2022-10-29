@@ -1,11 +1,10 @@
 package todolistapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import todolistapp.repositories.UserRepository;
 import todolistapp.user.User;
-
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,11 +19,12 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(NullPointerException::new);
     }
 
-    public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
-    }
-
     public void saveUser(User user) {
         userRepository.save(user);
+    }
+
+    public Optional<User> getUserInContext() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findById(username);
     }
 }

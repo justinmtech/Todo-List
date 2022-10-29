@@ -34,6 +34,14 @@ public class User {
         this.todoList = todoList;
     }
 
+    public void addTodoItem(TodoItem item) {
+        getTodoList().add(item);
+    }
+
+    public void removeTodoItem(TodoItem item) {
+        getTodoList().remove(item);
+    }
+
     public String getPassword() {
         return password;
     }

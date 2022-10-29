@@ -1,7 +1,6 @@
 package todolistapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import todolistapp.services.UserService;
 import todolistapp.user.TodoItem;
 import todolistapp.user.User;
+
+import java.util.Optional;
 
 @Controller
 public class TodoListManager {
@@ -25,26 +26,23 @@ public class TodoListManager {
 
     @PostMapping("/manager")
     public String postTodoListManagerPage(@ModelAttribute TodoItem todoItem, Model model) {
-        try {
-            model.addAttribute("todoItem", todoItem);
-            String username = SecurityContextHolder.getContext().getAuthentication().getName();
-            User user = userService.getAllUsers().stream().filter(u -> u.getUsername().equals(username)).findFirst().orElse(null);
-            try {
-                if (todoItem.getRemove().equalsIgnoreCase("yes")) {
-                    TodoItem todoItem2 = user.getTodoList().stream().filter(t -> t.getName().equals(todoItem.getName())).findFirst().orElse(null);
-                    user.getTodoList().remove(todoItem2);
-                } else if (todoItem.getRemove().equalsIgnoreCase("all")) {
-                    user.setTodoList(null);
-                }
-            } catch (Exception e) {
-                    user.getTodoList().add(todoItem);
-                }
-                userService.saveUser(user);
-                return "manager";
+        model.addAttribute("todoItem", todoItem);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        Optional<User> userContext = userService.getUserInContext();
+        if (userContext.isEmpty()) return "error";
+        User user = userContext.get();
+
+        String checkBoxType = todoItem.getRemove();
+        if (checkBoxType == null) {
+            user.addTodoItem(todoItem);
+            userService.saveUser(user);
+            return "manager";
         }
-        return "error";
+
+        if (checkBoxType.equals("yes")) user.removeTodoItem(todoItem);
+        else if (checkBoxType.equals("all")) user.setTodoList(null);
+        userService.saveUser(user);
+
+        return "manager";
     }
 }
