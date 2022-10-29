@@ -16,16 +16,12 @@ public class UserService {
 
     public UserService() {}
 
-    public User getUserById(int id) {
+    public User getUserById(String id) {
         return userRepository.findById(id).orElseThrow(NullPointerException::new);
     }
 
     public List<User> getAllUsers() {
         return (List<User>) userRepository.findAll();
-    }
-
-    public void removeUserById(User user) {
-        userRepository.delete(user);
     }
 
     public void saveUser(User user) {

@@ -6,11 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity(name = "users")
-@Table(name = "users")
+@Table(name = "todolist_users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
     private String username;
     private String password;
     @OneToMany(cascade = CascadeType.ALL)
@@ -18,14 +16,6 @@ public class User {
 
     public User() {
         this.todoList = new LinkedList<>();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {

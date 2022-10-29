@@ -16,7 +16,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.getAllUsers().stream().filter(u -> u.getUsername().equals(username)).findFirst().orElseThrow(NullPointerException::new);
+        //User user = userService.getAllUsers().stream().filter(u -> u.getUsername().equals(username)).findFirst().orElseThrow(NullPointerException::new);
+        User user = userService.getUserById(username);
         return new CustomUserDetails(user);
     }
 }

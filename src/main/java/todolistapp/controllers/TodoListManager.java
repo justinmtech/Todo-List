@@ -13,7 +13,6 @@ import todolistapp.user.User;
 
 @Controller
 public class TodoListManager {
-    private User user;
 
     @Autowired
     UserService userService;
@@ -29,7 +28,7 @@ public class TodoListManager {
         try {
             model.addAttribute("todoItem", todoItem);
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
-            user = userService.getAllUsers().stream().filter(u -> u.getUsername().equals(username)).findFirst().orElse(null);
+            User user = userService.getAllUsers().stream().filter(u -> u.getUsername().equals(username)).findFirst().orElse(null);
             try {
                 if (todoItem.getRemove().equalsIgnoreCase("yes")) {
                     TodoItem todoItem2 = user.getTodoList().stream().filter(t -> t.getName().equals(todoItem.getName())).findFirst().orElse(null);

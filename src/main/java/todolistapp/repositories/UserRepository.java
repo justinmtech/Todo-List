@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import todolistapp.user.User;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends CrudRepository<User, String> {
 }
